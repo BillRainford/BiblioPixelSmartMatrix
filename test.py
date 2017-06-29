@@ -1,19 +1,19 @@
 from BiblioPixelAnimations.matrix.bloom import Bloom
 from BiblioPixelAnimations.matrix.Text import ScrollText
-from bibliopixel.drivers.serial_driver import DriverTeensySmartMatrix
+from bibliopixel.drivers.serial.driver import TeensySmartMatrix
 import bibliopixel.colors as colors
-from bibliopixel.led import LEDMatrix
+from bibliopixel.layout import Matrix
 import bibliopixel.log as log
 import time
 
 log.setLogLevel(log.DEBUG)
 
-w = 128
+w = 64
 h = 32
-driver = DriverTeensySmartMatrix(w, h)
+driver = TeensySmartMatrix(w, h)
 
-led = LEDMatrix(driver, width=w, height=h,
-                serpentine=False, threadedUpdate=False)
+led = Matrix(driver, width=w, height=h,
+             serpentine=False, threadedUpdate=False)
 
 
 # load channel test animation
@@ -40,7 +40,7 @@ except:
 #     time.sleep(1)
 #
 # led.all_off()
-# led.update()
+# led.update()a
 # time.sleep(1)
 # led.all_off()
 # led.update()
